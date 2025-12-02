@@ -5,18 +5,18 @@
 
 /* --- CSS Variables --- */
 :root {
-    --matalan-red: #C41E3A;
-    --matalan-red-dark: #A01830;
-    --matalan-red-bg: #1A0A0A;
+    --matalan-red: #C8492C;
+    --matalan-red-dark: #A03F3F;
+    --matalan-red-bg: #B8412D;
     --cream: #FAF8F5;
     --charcoal: #1C1C1C;
-    --dark-bg: #120808;
+    --dark-bg: #0F0F0F;
     --text-muted: #888888;
     --text-light: rgba(255, 255, 255, 0.7);
-    
+
     --font-serif: 'Cormorant', Georgia, serif;
     --font-sans: 'Work Sans', -apple-system, sans-serif;
-    
+
     --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -112,45 +112,29 @@ a {
 }
 
 .nav__links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    gap: 40px;
+    align-items: center;
+    gap: 12px;
 }
 
 .nav__link {
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-light);
-    transition: color 0.2s ease;
-}
-
-.nav__link:hover {
+    font-size: 10px;
+    letter-spacing: 0.05em;
     color: var(--cream);
-}
-
-.nav__icons {
-    display: flex;
-    gap: 16px;
-}
-
-.nav__icon {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--cream);
-    opacity: 0.7;
     transition: opacity 0.2s ease;
 }
 
-.nav__icon:hover {
-    opacity: 1;
+.nav__link:hover {
+    opacity: 0.7;
 }
 
-.nav__icon svg {
-    width: 20px;
-    height: 20px;
+.nav__separator {
+    color: var(--cream);
+    opacity: 0.3;
+    font-size: 10px;
 }
 
 /* --- Hero Section --- */
@@ -162,7 +146,16 @@ a {
     align-items: center;
     text-align: center;
     position: relative;
-    background: radial-gradient(ellipse at 50% 70%, rgba(196, 30, 58, 0.12) 0%, transparent 60%);
+    background: var(--matalan-red);
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%, transparent 50%);
+    z-index: 0;
 }
 
 .hero__content {
@@ -180,16 +173,23 @@ a {
 }
 
 .hero__title {
-    font-family: var(--font-serif);
-    font-size: clamp(56px, 12vw, 120px);
-    font-weight: 300;
-    line-height: 0.95;
+    font-family: var(--font-sans);
+    font-size: clamp(56px, 12vw, 140px);
+    font-weight: 400;
+    line-height: 0.85;
     margin-bottom: 24px;
+    letter-spacing: 0.05em;
     animation: fadeUp 0.8s var(--ease-out) 0.4s both;
 }
 
 .hero__title em {
+    display: block;
+    font-family: var(--font-serif);
     font-style: italic;
+    font-size: clamp(40px, 8vw, 80px);
+    font-weight: 400;
+    letter-spacing: 0;
+    margin-bottom: 8px;
 }
 
 .hero__subtitle {
@@ -214,7 +214,7 @@ a {
     font-size: 9px;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .hero__scroll-line {
@@ -249,11 +249,11 @@ a {
 }
 
 .panel--fabric {
-    background: var(--charcoal);
+    background: var(--dark-bg);
 }
 
 .panel--model {
-    background: var(--matalan-red);
+    background: var(--matalan-red-dark);
     position: relative;
 }
 
@@ -335,7 +335,7 @@ a {
 /* --- Product Info Panel --- */
 .product-info {
     padding: 32px 40px;
-    background: var(--dark-bg);
+    background: rgba(0, 0, 0, 0.85);
     min-height: 260px;
     position: relative;
 }
@@ -374,11 +374,16 @@ a {
     font-size: 32px;
     font-weight: 300;
     margin-bottom: 20px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
 }
 
-.product-card__price sup {
-    font-size: 16px;
-    vertical-align: super;
+.product-card__currency {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
 }
 
 .product-card__swatches {
@@ -457,21 +462,25 @@ a {
 
 .model-tagline {
     position: absolute;
-    top: 40px;
+    top: 50%;
     right: 40px;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+    transform: translateY(-50%);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 0.02em;
     color: var(--cream);
     z-index: 10;
     opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    transition: opacity 0.4s ease;
+    text-align: right;
+    line-height: 1.4;
 }
 
 .model-tagline.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(-50%);
 }
 
 .model-logo {
