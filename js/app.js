@@ -12,10 +12,10 @@
     // ================================
     const CONFIG = {
         products: [
-            { tagline: "IT'S COSY SEASON" },
-            { tagline: "IT'S BUSINESS READY" },
-            { tagline: "IT'S EFFORTLESS STYLE" },
-            { tagline: "IT'S PARTY READY" }
+            { tagline: "It's<br>cosy season" },
+            { tagline: "It's<br>business ready" },
+            { tagline: "It's<br>effortless style" },
+            { tagline: "It's<br>party ready" }
         ],
         scrollMultiplier: 1,
         transitionDuration: 400
@@ -160,7 +160,7 @@
 
         updateTagline(index) {
             if (elements.modelTagline) {
-                elements.modelTagline.textContent = CONFIG.products[index].tagline;
+                elements.modelTagline.innerHTML = CONFIG.products[index].tagline;
                 elements.modelTagline.classList.add('visible');
             }
         },
