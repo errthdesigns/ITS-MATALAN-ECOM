@@ -93,22 +93,12 @@ a {
 
 .nav__logo {
     display: flex;
-    align-items: baseline;
-    gap: 8px;
+    align-items: center;
 }
 
-.nav__logo-its {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-size: 22px;
-    font-weight: 400;
-}
-
-.nav__logo-matalan {
-    font-family: var(--font-sans);
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 0.18em;
+.nav__logo-img {
+    height: 32px;
+    width: auto;
 }
 
 .nav__links {
@@ -240,7 +230,7 @@ a {
 }
 
 .lookbook__scroll-container {
-    height: 400vh;
+    height: 200vh;
 }
 
 .lookbook__sticky {
@@ -281,6 +271,7 @@ a {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center center;
     opacity: 0;
     transition: opacity 0.5s ease;
 }
@@ -461,6 +452,7 @@ a {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top;
     opacity: 0;
     transition: opacity 0.5s ease;
 }

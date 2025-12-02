@@ -12,13 +12,10 @@
     // ================================
     const CONFIG = {
         products: [
-            { tagline: "It's<br>business ready" },
-            { tagline: "It's<br>cosy season" },
-            { tagline: "It's<br>effortless style" },
-            { tagline: "It's<br>party ready" }
+            { tagline: "It's<br>business ready" }
         ],
-        scrollMultiplier: 1,
-        transitionDuration: 400
+        scrollMultiplier: 2,
+        transitionDuration: 300
     };
 
     // ================================
