@@ -489,26 +489,12 @@ a {
     position: absolute;
     bottom: 40px;
     left: 40px;
-    right: 40px;
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
     z-index: 10;
 }
 
-.model-logo__its {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-size: clamp(40px, 7vw, 72px);
-    color: var(--cream);
-}
-
-.model-logo__matalan {
-    font-family: var(--font-sans);
-    font-size: clamp(40px, 7vw, 72px);
-    font-weight: 400;
-    letter-spacing: 0.04em;
-    color: var(--cream);
+.model-logo__img {
+    height: 80px;
+    width: auto;
 }
 
 /* --- Navigation Dots --- */
