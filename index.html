@@ -39,9 +39,6 @@
         <video class="hero__video" autoplay muted loop playsinline>
             <source src="assets/videos/landing-page.mp4" type="video/mp4">
         </video>
-        <div class="hero__content">
-            <h1 class="hero__title"><em>It's</em>MATALAN</h1>
-        </div>
         <div class="hero__scroll">
             <span>Scroll</span>
             <div class="hero__scroll-line"></div>
@@ -58,13 +55,12 @@
                     <div class="fabric-viewer">
                         <!-- Fabric Videos - one per product -->
                         <video class="fabric-video" data-product="0" muted playsinline preload="auto">
-                            <source src="assets/videos/fabric-knit.mp4" type="video/mp4">
-                            <!-- Fallback to CDN -->
-                            <source src="https://assets.mixkit.co/videos/preview/mixkit-white-cotton-fabric-in-slow-motion-1224-large.mp4" type="video/mp4">
-                        </video>
-                        <video class="fabric-video" data-product="1" muted playsinline preload="auto">
                             <source src="assets/videos/blazer-zoom.mp4" type="video/mp4">
                             <source src="https://assets.mixkit.co/videos/preview/mixkit-linen-cloth-waving-in-slow-motion-17720-large.mp4" type="video/mp4">
+                        </video>
+                        <video class="fabric-video" data-product="1" muted playsinline preload="auto">
+                            <source src="assets/videos/fabric-knit.mp4" type="video/mp4">
+                            <source src="https://assets.mixkit.co/videos/preview/mixkit-white-cotton-fabric-in-slow-motion-1224-large.mp4" type="video/mp4">
                         </video>
                         <video class="fabric-video" data-product="2" muted playsinline preload="auto">
                             <source src="assets/videos/fabric-denim.mp4" type="video/mp4">
@@ -91,8 +87,27 @@
 
                     <!-- Product Info Cards -->
                     <div class="product-info">
-                        <!-- Product 1: Cardigan -->
+                        <!-- Product 1: Blazer -->
                         <article class="product-card active" data-product="0">
+                            <p class="product-card__category">Tailoring</p>
+                            <h2 class="product-card__name">Linen Blend Blazer</h2>
+                            <p class="product-card__price">38 <span class="product-card__currency">GBP</span></p>
+                            <div class="product-card__swatches">
+                                <button class="swatch active" style="--swatch-color: #D4B8E0" data-color="Lilac" aria-label="Lilac"></button>
+                                <button class="swatch" style="--swatch-color: #C9B896" data-color="Oatmeal" aria-label="Oatmeal"></button>
+                                <button class="swatch" style="--swatch-color: #1C1C1C" data-color="Black" aria-label="Black"></button>
+                            </div>
+                            <p class="product-card__color-label">Lilac — 3 colours</p>
+                            <button class="product-card__cta">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M12 5v14M5 12h14"/>
+                                </svg>
+                                Add to Bag
+                            </button>
+                        </article>
+
+                        <!-- Product 2: Cardigan -->
+                        <article class="product-card" data-product="1">
                             <p class="product-card__category">Knitwear</p>
                             <h2 class="product-card__name">Oversized Cardigan</h2>
                             <p class="product-card__price">27 <span class="product-card__currency">GBP</span></p>
@@ -103,25 +118,6 @@
                                 <button class="swatch" style="--swatch-color: #F5E6D3" data-color="Cream" aria-label="Cream"></button>
                             </div>
                             <p class="product-card__color-label">Pink — 4 colours</p>
-                            <button class="product-card__cta">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path d="M12 5v14M5 12h14"/>
-                                </svg>
-                                Add to Bag
-                            </button>
-                        </article>
-
-                        <!-- Product 2: Blazer -->
-                        <article class="product-card" data-product="1">
-                            <p class="product-card__category">Tailoring</p>
-                            <h2 class="product-card__name">Linen Blend Blazer</h2>
-                            <p class="product-card__price">38 <span class="product-card__currency">GBP</span></p>
-                            <div class="product-card__swatches">
-                                <button class="swatch active" style="--swatch-color: #D4B8E0" data-color="Lilac" aria-label="Lilac"></button>
-                                <button class="swatch" style="--swatch-color: #C9B896" data-color="Oatmeal" aria-label="Oatmeal"></button>
-                                <button class="swatch" style="--swatch-color: #1C1C1C" data-color="Black" aria-label="Black"></button>
-                            </div>
-                            <p class="product-card__color-label">Lilac — 3 colours</p>
                             <button class="product-card__cta">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                     <path d="M12 5v14M5 12h14"/>
@@ -175,12 +171,12 @@
                     <div class="model-viewer">
                         <!-- Model Videos - one per product -->
                         <video class="model-video" data-product="0" muted playsinline preload="auto">
-                            <source src="assets/videos/model-cardigan.mp4" type="video/mp4">
-                            <source src="https://assets.mixkit.co/videos/preview/mixkit-portrait-of-a-fashion-woman-in-a-rainy-window-39880-large.mp4" type="video/mp4">
-                        </video>
-                        <video class="model-video" data-product="1" muted playsinline preload="auto">
                             <source src="assets/videos/model-02.mp4" type="video/mp4">
                             <source src="https://assets.mixkit.co/videos/preview/mixkit-young-woman-modeling-in-a-studio-with-a-red-background-39878-large.mp4" type="video/mp4">
+                        </video>
+                        <video class="model-video" data-product="1" muted playsinline preload="auto">
+                            <source src="assets/videos/model-cardigan.mp4" type="video/mp4">
+                            <source src="https://assets.mixkit.co/videos/preview/mixkit-portrait-of-a-fashion-woman-in-a-rainy-window-39880-large.mp4" type="video/mp4">
                         </video>
                         <video class="model-video" data-product="2" muted playsinline preload="auto">
                             <source src="assets/videos/model-jeans.mp4" type="video/mp4">
@@ -192,7 +188,7 @@
                         </video>
 
                         <!-- Tagline -->
-                        <p class="model-tagline" id="modelTagline">It's<br>cosy season</p>
+                        <p class="model-tagline" id="modelTagline">It's<br>business ready</p>
 
                         <!-- Large Logo -->
                         <div class="model-logo">
