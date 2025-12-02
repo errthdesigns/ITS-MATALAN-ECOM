@@ -100,22 +100,16 @@
 
         scrubVideos(progress) {
             const activeIndex = state.currentProduct;
-            
-            // Get active videos
+
+            // Get active fabric video
             const fabricVideo = elements.fabricVideos[activeIndex];
-            const modelVideo = elements.modelVideos[activeIndex];
 
             // Calculate segment progress (0-1 within each product section)
             const segmentProgress = (progress * CONFIG.products.length) % 1;
 
-            // Scrub fabric video
+            // Scrub fabric video only (model video plays independently)
             if (fabricVideo && fabricVideo.duration) {
                 fabricVideo.currentTime = segmentProgress * fabricVideo.duration;
-            }
-
-            // Scrub model video
-            if (modelVideo && modelVideo.duration) {
-                modelVideo.currentTime = segmentProgress * modelVideo.duration;
             }
         }
     };
@@ -126,12 +120,9 @@
     const UIController = {
         updateProgress(progress) {
             const percentage = progress * 100;
-            
+
             if (elements.fabricProgress) {
                 elements.fabricProgress.style.width = `${percentage}%`;
-            }
-            if (elements.modelProgress) {
-                elements.modelProgress.style.width = `${percentage}%`;
             }
         },
 
