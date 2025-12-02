@@ -421,7 +421,7 @@ a {
     align-items: center;
     gap: 10px;
     padding: 14px 28px;
-    background: var(--matalan-red);
+    background: #AD1E1F;
     color: var(--cream);
     font-size: 11px;
     letter-spacing: 0.12em;
@@ -430,7 +430,7 @@ a {
 }
 
 .product-card__cta:hover {
-    background: var(--matalan-red-dark);
+    background: #8A1719;
 }
 
 .product-card__cta svg {

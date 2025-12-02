@@ -89,8 +89,8 @@
                 <!-- Right Panel: Model Video -->
                 <div class="panel panel--model">
                     <div class="model-viewer">
-                        <!-- Model Video - Autoplay Loop -->
-                        <video class="model-video active" autoplay muted loop playsinline preload="auto">
+                        <!-- Model Video - Scroll Driven -->
+                        <video class="model-video active" data-product="0" muted playsinline preload="auto">
                             <source src="assets/videos/model-02.mp4" type="video/mp4">
                         </video>
 
@@ -102,22 +102,17 @@
                             <span class="model-logo__its">It's</span>
                             <span class="model-logo__matalan">MATALAN</span>
                         </div>
+
+                        <!-- Progress Bar -->
+                        <div class="progress-bar">
+                            <div class="progress-bar__fill" id="modelProgress"></div>
+                        </div>
                     </div>
                 </div>
 
             </div>
         </div>
 
-    </section>
-
-    <!-- End CTA -->
-    <section class="end-cta">
-        <div class="end-cta__logo">
-            <span class="end-cta__its">It's</span>
-            <span class="end-cta__matalan">MATALAN</span>
-        </div>
-        <p class="end-cta__subtitle">Made for you. Designed around you.</p>
-        <a href="#" class="end-cta__button">Shop Collection</a>
     </section>
 
     <!-- Footer -->
