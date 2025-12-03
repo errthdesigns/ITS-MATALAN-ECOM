@@ -25,6 +25,8 @@
     const elements = {
         nav: document.getElementById('nav'),
         lookbook: document.getElementById('lookbook'),
+        slider: document.getElementById('lookbookSlider'),
+        productViews: document.querySelectorAll('.product-view'),
         fabricVideos: document.querySelectorAll('.fabric-video'),
         modelVideos: document.querySelectorAll('.model-video'),
         fabricProgress: document.getElementById('fabricProgress'),
@@ -50,7 +52,6 @@
     const VideoController = {
         init() {
             this.loadVideos();
-            this.setActiveVideos(0);
         },
 
         loadVideos() {
@@ -60,7 +61,7 @@
 
             allVideos.forEach(video => {
                 video.load();
-                
+
                 const handleLoaded = () => {
                     loadedCount++;
                     if (loadedCount === totalVideos) {
@@ -71,7 +72,7 @@
 
                 video.addEventListener('loadeddata', handleLoaded);
                 video.addEventListener('canplaythrough', handleLoaded);
-                
+
                 // Fallback if already loaded
                 if (video.readyState >= 3) {
                     handleLoaded();
@@ -79,32 +80,16 @@
             });
         },
 
-        setActiveVideos(index) {
-            // Update fabric videos
-            elements.fabricVideos.forEach((video, i) => {
-                if (i === index) {
-                    video.classList.add('active');
-                } else {
-                    video.classList.remove('active');
-                }
-            });
-
-            // Update model videos
-            elements.modelVideos.forEach((video, i) => {
-                if (i === index) {
-                    video.classList.add('active');
-                } else {
-                    video.classList.remove('active');
-                }
-            });
-        },
-
         scrubVideos(progress) {
             const activeIndex = state.currentProduct;
 
-            // Get active videos
-            const fabricVideo = elements.fabricVideos[activeIndex];
-            const modelVideo = elements.modelVideos[activeIndex];
+            // Get active product view
+            const activeView = elements.productViews[activeIndex];
+            if (!activeView) return;
+
+            // Get videos for this product
+            const fabricVideo = activeView.querySelector('.fabric-video');
+            const modelVideo = activeView.querySelector('.model-video');
 
             // Calculate segment progress (0-1 within each product section)
             const segmentProgress = (progress * CONFIG.products.length) % 1;
@@ -135,16 +120,6 @@
             }
         },
 
-        updateProductCards(index) {
-            elements.productCards.forEach((card, i) => {
-                if (i === index) {
-                    card.classList.add('active');
-                } else {
-                    card.classList.remove('active');
-                }
-            });
-        },
-
         updateNavDots(index) {
             elements.navDots.forEach((dot, i) => {
                 if (i === index) {
@@ -155,19 +130,22 @@
             });
         },
 
-        updateTagline(index) {
-            if (elements.modelTagline) {
-                elements.modelTagline.innerHTML = CONFIG.products[index].tagline;
-                elements.modelTagline.classList.add('visible');
-            }
-        },
-
         updateNav() {
             if (window.scrollY > 50) {
                 elements.nav.classList.add('scrolled');
             } else {
                 elements.nav.classList.remove('scrolled');
             }
+        },
+
+        updateSliderPosition(progress) {
+            if (!elements.slider) return;
+
+            // Calculate how far to slide (0-100% per product)
+            const slidePercentage = progress * 100 * CONFIG.products.length;
+
+            // Apply transform to slide the container
+            elements.slider.style.transform = `translateX(-${slidePercentage}%)`;
         }
     };
 
@@ -201,11 +179,11 @@
             const rect = elements.lookbook.getBoundingClientRect();
             const scrollHeight = elements.lookbook.offsetHeight - window.innerHeight;
             const scrolled = -rect.top;
-            
+
             // Calculate overall progress (0 to 1)
             const progress = Math.max(0, Math.min(1, scrolled / scrollHeight));
 
-            // Determine which product we're on (0-3)
+            // Determine which product we're on
             const productIndex = Math.min(
                 CONFIG.products.length - 1,
                 Math.floor(progress * CONFIG.products.length)
@@ -214,13 +192,11 @@
             // Update UI
             UIController.updateProgress(progress);
             UIController.updateNavDots(productIndex);
+            UIController.updateSliderPosition(progress);
 
             // Only update if product changed
             if (productIndex !== state.currentProduct) {
                 state.currentProduct = productIndex;
-                VideoController.setActiveVideos(productIndex);
-                UIController.updateProductCards(productIndex);
-                UIController.updateTagline(productIndex);
             }
 
             // Scrub videos based on scroll

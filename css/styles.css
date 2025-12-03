@@ -237,7 +237,21 @@ a {
     position: sticky;
     top: 0;
     height: 100vh;
+    overflow: hidden;
+}
+
+.lookbook__slider {
     display: flex;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.product-view {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    flex-shrink: 0;
 }
 
 /* --- Panels --- */
@@ -246,7 +260,6 @@ a {
     height: 100%;
     display: flex;
     flex-direction: column;
-    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .panel--fabric {
@@ -273,11 +286,6 @@ a {
     height: 100%;
     object-fit: cover;
     object-position: center center;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.fabric-video.active {
     opacity: 1;
     z-index: 2;
 }
@@ -344,12 +352,6 @@ a {
 
 .product-card {
     position: relative;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-}
-
-.product-card.active {
     opacity: 1;
     pointer-events: all;
 }
@@ -451,11 +453,6 @@ a {
     height: 100%;
     object-fit: cover;
     object-position: center top;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.model-video.active {
     opacity: 1;
     z-index: 2;
 }
