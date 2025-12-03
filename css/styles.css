@@ -30,7 +30,6 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-snap-type: y proximity;
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
@@ -139,7 +138,6 @@ a {
     position: relative;
     background: var(--matalan-red);
     overflow: hidden;
-    scroll-snap-align: start;
 }
 
 .hero__video {
@@ -229,7 +227,6 @@ a {
 /* --- Lookbook Section --- */
 .lookbook {
     position: relative;
-    scroll-snap-align: start;
 }
 
 .lookbook__scroll-container {
