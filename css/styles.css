@@ -230,13 +230,13 @@ a {
 }
 
 .lookbook__scroll-container {
-    height: 300vh;
+    height: 200vh;
 }
 
 .lookbook__sticky {
     position: sticky;
     top: 0;
-    height: calc(100vh + 260px);
+    height: 100vh;
     display: flex;
 }
 
@@ -335,24 +335,21 @@ a {
 
 /* --- Product Info Panel --- */
 .product-info {
-    padding: 32px 40px;
+    padding: 24px 40px 32px 40px;
     background: rgba(0, 0, 0, 0.85);
-    min-height: 260px;
+    min-height: auto;
     position: relative;
 }
 
 .product-card {
-    position: absolute;
-    inset: 32px 40px;
+    position: relative;
     opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    transition: opacity 0.4s ease;
     pointer-events: none;
 }
 
 .product-card.active {
     opacity: 1;
-    transform: translateY(0);
     pointer-events: all;
 }
 
