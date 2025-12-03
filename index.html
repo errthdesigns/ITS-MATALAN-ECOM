@@ -22,13 +22,12 @@
     <!-- Navigation -->
     <nav class="nav" id="nav">
         <div class="nav__logo">
-            <span class="nav__logo-its">It's</span>
-            <span class="nav__logo-matalan">MATALAN</span>
+            <img src="assets/images/Logo-Lockup.png" alt="It's Matalan" class="nav__logo-img">
         </div>
         <div class="nav__links">
             <a href="#" class="nav__link">SHOP</a>
             <span class="nav__separator">|</span>
-            <a href="#" class="nav__link">Fabric</a>
+            <a href="#" class="nav__link">FABRIC</a>
             <span class="nav__separator">|</span>
             <a href="#" class="nav__link">LOOKBOOK</a>
         </div>
@@ -36,9 +35,9 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero__content">
-            <h1 class="hero__title"><em>It's</em>MATALAN</h1>
-        </div>
+        <video class="hero__video" autoplay muted loop playsinline>
+            <source src="assets/videos/landing-page.mp4" type="video/mp4">
+        </video>
         <div class="hero__scroll">
             <span>Scroll</span>
             <div class="hero__scroll-line"></div>
@@ -54,31 +53,9 @@
                 <div class="panel panel--fabric">
                     <div class="fabric-viewer">
                         <!-- Fabric Videos - one per product -->
-                        <video class="fabric-video" data-product="0" muted playsinline preload="auto">
-                            <source src="assets/videos/fabric-knit.mp4" type="video/mp4">
-                            <!-- Fallback to CDN -->
-                            <source src="https://assets.mixkit.co/videos/preview/mixkit-white-cotton-fabric-in-slow-motion-1224-large.mp4" type="video/mp4">
+                        <video class="fabric-video active" data-product="0" muted playsinline preload="auto">
+                            <source src="assets/videos/blazer-zoom.mp4" type="video/mp4">
                         </video>
-                        <video class="fabric-video" data-product="1" muted playsinline preload="auto">
-                            <source src="assets/videos/fabric-linen.mp4" type="video/mp4">
-                            <source src="https://assets.mixkit.co/videos/preview/mixkit-linen-cloth-waving-in-slow-motion-17720-large.mp4" type="video/mp4">
-                        </video>
-                        <video class="fabric-video" data-product="2" muted playsinline preload="auto">
-                            <source src="assets/videos/fabric-denim.mp4" type="video/mp4">
-                            <source src="https://assets.mixkit.co/videos/preview/mixkit-texture-of-blue-denim-jeans-seen-in-detail-40716-large.mp4" type="video/mp4">
-                        </video>
-                        <video class="fabric-video" data-product="3" muted playsinline preload="auto">
-                            <source src="assets/videos/fabric-satin.mp4" type="video/mp4">
-                            <source src="https://assets.mixkit.co/videos/preview/mixkit-black-silk-1528-large.mp4" type="video/mp4">
-                        </video>
-
-                        <!-- Angled Logo Overlay -->
-                        <div class="fabric-logo">
-                            <span class="fabric-logo__its">It's</span>
-                            <div class="fabric-logo__box">
-                                <span>MATALAN</span>
-                            </div>
-                        </div>
 
                         <!-- Progress Bar -->
                         <div class="progress-bar">
@@ -88,28 +65,8 @@
 
                     <!-- Product Info Cards -->
                     <div class="product-info">
-                        <!-- Product 1: Cardigan -->
+                        <!-- Product 1: Blazer -->
                         <article class="product-card active" data-product="0">
-                            <p class="product-card__category">Knitwear</p>
-                            <h2 class="product-card__name">Oversized Cardigan</h2>
-                            <p class="product-card__price">27 <span class="product-card__currency">GBP</span></p>
-                            <div class="product-card__swatches">
-                                <button class="swatch active" style="--swatch-color: #E8C4D8" data-color="Pink" aria-label="Pink"></button>
-                                <button class="swatch" style="--swatch-color: #2D5A4A" data-color="Forest" aria-label="Forest"></button>
-                                <button class="swatch" style="--swatch-color: #1C1C1C" data-color="Black" aria-label="Black"></button>
-                                <button class="swatch" style="--swatch-color: #F5E6D3" data-color="Cream" aria-label="Cream"></button>
-                            </div>
-                            <p class="product-card__color-label">Pink — 4 colours</p>
-                            <button class="product-card__cta">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path d="M12 5v14M5 12h14"/>
-                                </svg>
-                                Add to Bag
-                            </button>
-                        </article>
-
-                        <!-- Product 2: Blazer -->
-                        <article class="product-card" data-product="1">
                             <p class="product-card__category">Tailoring</p>
                             <h2 class="product-card__name">Linen Blend Blazer</h2>
                             <p class="product-card__price">38 <span class="product-card__currency">GBP</span></p>
@@ -126,76 +83,16 @@
                                 Add to Bag
                             </button>
                         </article>
-
-                        <!-- Product 3: Jeans -->
-                        <article class="product-card" data-product="2">
-                            <p class="product-card__category">Denim</p>
-                            <h2 class="product-card__name">Wide Leg Jeans</h2>
-                            <p class="product-card__price">29 <span class="product-card__currency">GBP</span></p>
-                            <div class="product-card__swatches">
-                                <button class="swatch active" style="--swatch-color: #2B4257" data-color="Dark Wash" aria-label="Dark Wash"></button>
-                                <button class="swatch" style="--swatch-color: #6B8BA4" data-color="Mid Wash" aria-label="Mid Wash"></button>
-                                <button class="swatch" style="--swatch-color: #1C1C1C" data-color="Black" aria-label="Black"></button>
-                            </div>
-                            <p class="product-card__color-label">Dark Wash — 3 washes</p>
-                            <button class="product-card__cta">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path d="M12 5v14M5 12h14"/>
-                                </svg>
-                                Add to Bag
-                            </button>
-                        </article>
-
-                        <!-- Product 4: Dress -->
-                        <article class="product-card" data-product="3">
-                            <p class="product-card__category">Partywear</p>
-                            <h2 class="product-card__name">Satin Slip Dress</h2>
-                            <p class="product-card__price">25 <span class="product-card__currency">GBP</span></p>
-                            <div class="product-card__swatches">
-                                <button class="swatch active" style="--swatch-color: #1C1C1C" data-color="Black" aria-label="Black"></button>
-                                <button class="swatch" style="--swatch-color: #8B2942" data-color="Burgundy" aria-label="Burgundy"></button>
-                                <button class="swatch" style="--swatch-color: #2D5A4A" data-color="Emerald" aria-label="Emerald"></button>
-                            </div>
-                            <p class="product-card__color-label">Black — 3 colours</p>
-                            <button class="product-card__cta">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path d="M12 5v14M5 12h14"/>
-                                </svg>
-                                Add to Bag
-                            </button>
-                        </article>
                     </div>
                 </div>
 
                 <!-- Right Panel: Model Video -->
                 <div class="panel panel--model">
                     <div class="model-viewer">
-                        <!-- Model Videos - one per product -->
-                        <video class="model-video" data-product="0" muted playsinline preload="auto">
-                            <source src="assets/videos/model-cardigan.mp4" type="video/mp4">
-                            <source src="https://assets.mixkit.co/videos/preview/mixkit-portrait-of-a-fashion-woman-in-a-rainy-window-39880-large.mp4" type="video/mp4">
+                        <!-- Model Video - Scroll Driven -->
+                        <video class="model-video active" data-product="0" muted playsinline preload="auto">
+                            <source src="assets/videos/model-04.mp4" type="video/mp4">
                         </video>
-                        <video class="model-video" data-product="1" muted playsinline preload="auto">
-                            <source src="assets/videos/model-blazer.mp4" type="video/mp4">
-                            <source src="https://assets.mixkit.co/videos/preview/mixkit-young-woman-modeling-in-a-studio-with-a-red-background-39878-large.mp4" type="video/mp4">
-                        </video>
-                        <video class="model-video" data-product="2" muted playsinline preload="auto">
-                            <source src="assets/videos/model-jeans.mp4" type="video/mp4">
-                            <source src="https://assets.mixkit.co/videos/preview/mixkit-curly-haired-woman-looking-at-the-camera-in-a-studio-42373-large.mp4" type="video/mp4">
-                        </video>
-                        <video class="model-video" data-product="3" muted playsinline preload="auto">
-                            <source src="assets/videos/model-dress.mp4" type="video/mp4">
-                            <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-posing-for-a-photo-shoot-in-a-dark-studio-39879-large.mp4" type="video/mp4">
-                        </video>
-
-                        <!-- Tagline -->
-                        <p class="model-tagline" id="modelTagline">It's<br>cosy season</p>
-
-                        <!-- Large Logo -->
-                        <div class="model-logo">
-                            <span class="model-logo__its">It's</span>
-                            <span class="model-logo__matalan">MATALAN</span>
-                        </div>
 
                         <!-- Progress Bar -->
                         <div class="progress-bar">
@@ -207,78 +104,7 @@
             </div>
         </div>
 
-        <!-- Navigation Dots -->
-        <nav class="nav-dots" aria-label="Product navigation">
-            <button class="nav-dot active" data-index="0" aria-label="Product 1"></button>
-            <button class="nav-dot" data-index="1" aria-label="Product 2"></button>
-            <button class="nav-dot" data-index="2" aria-label="Product 3"></button>
-            <button class="nav-dot" data-index="3" aria-label="Product 4"></button>
-        </nav>
     </section>
-
-    <!-- End CTA -->
-    <section class="end-cta">
-        <div class="end-cta__logo">
-            <span class="end-cta__its">It's</span>
-            <span class="end-cta__matalan">MATALAN</span>
-        </div>
-        <p class="end-cta__subtitle">Made for you. Designed around you.</p>
-        <a href="#" class="end-cta__button">Shop Collection</a>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer__grid">
-            <div class="footer__brand">
-                <div class="footer__logo">
-                    <span class="footer__logo-its">It's</span>
-                    <span class="footer__logo-matalan">MATALAN</span>
-                </div>
-                <p class="footer__tagline">Style and quality woven into every thread.</p>
-            </div>
-            <div class="footer__col">
-                <h4>Shop</h4>
-                <a href="#">New In</a>
-                <a href="#">Women</a>
-                <a href="#">Men</a>
-                <a href="#">Kids</a>
-                <a href="#">Home</a>
-            </div>
-            <div class="footer__col">
-                <h4>About</h4>
-                <a href="#">Our Story</a>
-                <a href="#">Sustainability</a>
-                <a href="#">Careers</a>
-            </div>
-            <div class="footer__col">
-                <h4>Help</h4>
-                <a href="#">Contact</a>
-                <a href="#">Delivery</a>
-                <a href="#">Returns</a>
-                <a href="#">Size Guide</a>
-            </div>
-        </div>
-        <div class="footer__bottom">
-            <p>© 2025 Matalan. All rights reserved.</p>
-            <div class="footer__social">
-                <a href="#" aria-label="Instagram">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                    </svg>
-                </a>
-                <a href="#" aria-label="TikTok">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
-                    </svg>
-                </a>
-                <a href="#" aria-label="X">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </footer>
 
     <!-- Scripts -->
     <script src="js/app.js"></script>

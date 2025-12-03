@@ -12,13 +12,10 @@
     // ================================
     const CONFIG = {
         products: [
-            { tagline: "It's<br>cosy season" },
-            { tagline: "It's<br>business ready" },
-            { tagline: "It's<br>effortless style" },
-            { tagline: "It's<br>party ready" }
+            { tagline: "It's<br>business ready" }
         ],
-        scrollMultiplier: 1,
-        transitionDuration: 400
+        scrollMultiplier: 2,
+        transitionDuration: 300
     };
 
     // ================================
@@ -103,7 +100,7 @@
 
         scrubVideos(progress) {
             const activeIndex = state.currentProduct;
-            
+
             // Get active videos
             const fabricVideo = elements.fabricVideos[activeIndex];
             const modelVideo = elements.modelVideos[activeIndex];
@@ -111,12 +108,11 @@
             // Calculate segment progress (0-1 within each product section)
             const segmentProgress = (progress * CONFIG.products.length) % 1;
 
-            // Scrub fabric video
+            // Scrub both videos
             if (fabricVideo && fabricVideo.duration) {
                 fabricVideo.currentTime = segmentProgress * fabricVideo.duration;
             }
 
-            // Scrub model video
             if (modelVideo && modelVideo.duration) {
                 modelVideo.currentTime = segmentProgress * modelVideo.duration;
             }
@@ -129,7 +125,7 @@
     const UIController = {
         updateProgress(progress) {
             const percentage = progress * 100;
-            
+
             if (elements.fabricProgress) {
                 elements.fabricProgress.style.width = `${percentage}%`;
             }
