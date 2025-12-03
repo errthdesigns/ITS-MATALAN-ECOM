@@ -230,7 +230,7 @@ a {
 }
 
 .lookbook__scroll-container {
-    height: 200vh;
+    height: 400vh;
 }
 
 .lookbook__sticky {
@@ -246,6 +246,7 @@ a {
     height: 100%;
     display: flex;
     flex-direction: column;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .panel--fabric {

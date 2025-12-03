@@ -12,7 +12,8 @@
     // ================================
     const CONFIG = {
         products: [
-            { tagline: "It's<br>business ready" }
+            { tagline: "It's<br>business ready" },
+            { tagline: "It's<br>cosy season" }
         ],
         scrollMultiplier: 2,
         transitionDuration: 300
