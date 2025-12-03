@@ -81,7 +81,21 @@
         },
 
         scrubVideos(progress) {
-            const activeIndex = state.currentProduct;
+            // For 2 products:
+            // 0-0.5: Scrub blazer videos (product 0)
+            // 0.5-1.0: Scrub jumper videos (product 1)
+
+            let activeIndex, segmentProgress;
+
+            if (progress < 0.5) {
+                // First half: blazer videos
+                activeIndex = 0;
+                segmentProgress = progress * 2; // Map 0-0.5 to 0-1
+            } else {
+                // Second half: jumper videos
+                activeIndex = 1;
+                segmentProgress = (progress - 0.5) * 2; // Map 0.5-1 to 0-1
+            }
 
             // Get active product view
             const activeView = elements.productViews[activeIndex];
@@ -90,9 +104,6 @@
             // Get videos for this product
             const fabricVideo = activeView.querySelector('.fabric-video');
             const modelVideo = activeView.querySelector('.model-video');
-
-            // Calculate segment progress (0-1 within each product section)
-            const segmentProgress = (progress * CONFIG.products.length) % 1;
 
             // Scrub both videos
             if (fabricVideo && fabricVideo.duration) {
@@ -141,8 +152,16 @@
         updateSliderPosition(progress) {
             if (!elements.slider) return;
 
-            // Calculate how far to slide (0-100% per product)
-            const slidePercentage = progress * 100 * CONFIG.products.length;
+            // Slide only happens in second half of scroll (after blazer videos finish)
+            // 0-0.5 progress: slider stays at 0%
+            // 0.5-1.0 progress: slider moves from 0% to 100%
+            let slidePercentage;
+
+            if (progress < 0.5) {
+                slidePercentage = 0;
+            } else {
+                slidePercentage = (progress - 0.5) * 2 * 100; // Map 0.5-1 to 0-100%
+            }
 
             // Apply transform to slide the container
             elements.slider.style.transform = `translateX(-${slidePercentage}%)`;
