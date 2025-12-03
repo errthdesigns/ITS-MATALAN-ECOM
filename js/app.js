@@ -81,20 +81,24 @@
         },
 
         scrubVideos(progress) {
-            // For 2 products:
-            // 0-0.5: Scrub blazer videos (product 0)
-            // 0.5-1.0: Scrub jumper videos (product 1)
+            // For 2 products with 3 phases:
+            // 0-0.4: Scrub blazer videos (product 0) from 0-100%
+            // 0.4-0.6: Transition (no scrubbing)
+            // 0.6-1.0: Scrub jumper videos (product 1) from 0-100%
 
             let activeIndex, segmentProgress;
 
-            if (progress < 0.5) {
-                // First half: blazer videos
+            if (progress < 0.4) {
+                // Phase 1: Blazer videos scrub
                 activeIndex = 0;
-                segmentProgress = progress * 2; // Map 0-0.5 to 0-1
-            } else {
-                // Second half: jumper videos
+                segmentProgress = progress / 0.4; // Map 0-0.4 to 0-1
+            } else if (progress >= 0.6) {
+                // Phase 3: Jumper videos scrub
                 activeIndex = 1;
-                segmentProgress = (progress - 0.5) * 2; // Map 0.5-1 to 0-1
+                segmentProgress = (progress - 0.6) / 0.4; // Map 0.6-1.0 to 0-1
+            } else {
+                // Phase 2: Transition phase - hold videos at end/start
+                return;
             }
 
             // Get active product view
@@ -152,15 +156,19 @@
         updateSliderPosition(progress) {
             if (!elements.slider) return;
 
-            // Slide only happens in second half of scroll (after blazer videos finish)
-            // 0-0.5 progress: slider stays at 0%
-            // 0.5-1.0 progress: slider moves from 0% to 100%
+            // Slide happens during transition phase
+            // 0-0.4: Slider stays at 0% (blazer visible)
+            // 0.4-0.6: Slider moves from 0% to 100% (transition)
+            // 0.6-1.0: Slider stays at 100% (jumper visible)
             let slidePercentage;
 
-            if (progress < 0.5) {
+            if (progress < 0.4) {
                 slidePercentage = 0;
+            } else if (progress >= 0.6) {
+                slidePercentage = 100;
             } else {
-                slidePercentage = (progress - 0.5) * 2 * 100; // Map 0.5-1 to 0-100%
+                // Map 0.4-0.6 to 0-100%
+                slidePercentage = ((progress - 0.4) / 0.2) * 100;
             }
 
             // Apply transform to slide the container
@@ -202,11 +210,10 @@
             // Calculate overall progress (0 to 1)
             const progress = Math.max(0, Math.min(1, scrolled / scrollHeight));
 
-            // Determine which product we're on
-            const productIndex = Math.min(
-                CONFIG.products.length - 1,
-                Math.floor(progress * CONFIG.products.length)
-            );
+            // Determine which product we're on based on phases
+            // 0-0.4: Product 0 (blazer)
+            // 0.4-1.0: Product 1 (jumper)
+            const productIndex = progress < 0.4 ? 0 : 1;
 
             // Update UI
             UIController.updateProgress(progress);
